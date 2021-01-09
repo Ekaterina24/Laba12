@@ -20,37 +20,101 @@
                 <form>
                     <label for="surname">
                         <div style="margin-right: 240px;">Фамилия<br></div><input type="text" required
-                            placeholder="Ваша фамилия" id="surname" v-model="phrase">
+                            placeholder="Ваша фамилия" id="surname" v-model="sname">
                     </label><br>
 
 
 
                     <label for="name">
                         <div style="margin-right: 280px;">Имя<br></div><input type="text" required
-                            placeholder="Ваше имя" id="name" v-model="phrase2">
+                            placeholder="Ваше имя" id="name" v-model="name_n">
                     </label>
                 </form>
 
                 <div style="margin-right: 130px;">Количество знаков: {{length}}</div>
+
+
+                <button class="btn" v-on:click.prevent="addItem" v-bind:disabled="Button">Записать</button>
+
+                <h1>{{header}}</h1>
+                <div v-if="items.length == 0">Список пуст</div>
+
+                <div v-else>
+                    <ol style="display: inline-block;">
+                        <li v-for="item in items">
+                            {{item}}
+                        </li>
+                    </ol>
+
+
+                </div>
             </div>
         </div>
-    </div>
-    <script type="text/javascript" src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
-    <script>
-        new Vue({
-            el: '#count',
-            data: {
-                phrase: '',
-                phrase2: ''
-            },
-            computed: {
-                length: function () {
-                    return this.phrase.length + this.phrase2.length;
-                }
-            }
-        });
+        <script type="text/javascript" src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
+        <script>
+            new Vue({
+                el: '#count',
+                data: {
+                    sname: '',
+                    name_n: '',
+                    header: 'Список',
+                    items: [
+                    ],
+                    Button: true,
+                },
+                computed: {
+                    length: function () {
+                        return this.sname.length + this.name_n.length;
+                    }
+                },
 
-    </script>
+                methods: {
+                    addItem: function () {
+                        if (this.sname !== '' && this.name_n !== '') {
+                            const item = {};
+                            item.one = this.sname;
+                            item.two = this.name_n;
+
+                            i1 = this.sname[0];
+                            i2 = this.name_n[0];
+
+                            this.sname = this.sname.toLowerCase().slice(1);
+                            this.name_n = this.name_n.toLowerCase().slice(1);
+
+                            this.sname = i1.toUpperCase() + this.sname;
+                            this.name_n = i2.toUpperCase() + this.name_n;
+
+
+
+                            this.items.push(`${this.sname} ${this.name_n} `);
+                            this.sname = '';
+                            this.name_n = '';
+                        }
+                    },
+
+                },
+                watch: {
+
+                    sname(value) {
+                        if (value.length > 0 && this.name_n.length > 0) {
+                            this.Button = false;
+                        } else {
+                            this.Button = true;
+                        }
+                    },
+
+                    name_n(value) {
+                        if (value.length > 0 && this.sname.length > 0) {
+                            this.Button = false;
+                        } else {
+                            this.Button = true;
+                        }
+                    },
+                },
+
+            });
+
+        </script>
 
 
 </body>

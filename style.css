@@ -13,6 +13,11 @@ input {
 
 }
 
+button{
+    margin: 20px;
+    padding: 5px;
+}
+
 
 .main {
     text-align: center;
@@ -24,3 +29,21 @@ input {
     
 }
 
+.btn {
+    margin-top: 15px;
+    color: rgb(67, 6, 128);
+    background:rgb(243, 239, 0);
+}
+
+.btn:hover{
+    cursor: pointer;
+}
+
+.btn:disabled{
+    cursor: wait;
+    background: white !important;
+}
+
+.btn:focus {
+    outline: none;
+  }

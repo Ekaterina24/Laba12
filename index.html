@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Laba12</title>
+</head>
+
+<body>
+    <div id="bg_color" class="color">
+        <div class="main">
+            <br>
+            <h1>Список студентов</h1>
+            <p>Создание формы </p>
+            <h2>Форма</h2>
+
+            <div id="count">
+                <form>
+                    <label for="surname">
+                        <div style="margin-right: 240px;">Фамилия<br></div><input type="text" required
+                            placeholder="Ваша фамилия" id="surname" v-model="phrase">
+                    </label><br>
+
+
+
+                    <label for="name">
+                        <div style="margin-right: 280px;">Имя<br></div><input type="text" required
+                            placeholder="Ваше имя" id="name" v-model="phrase2">
+                    </label>
+                </form>
+
+                <div style="margin-right: 130px;">Количество знаков: {{length}}</div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#count',
+            data: {
+                phrase: '',
+                phrase2: ''
+            },
+            computed: {
+                length: function () {
+                    return this.phrase.length + this.phrase2.length;
+                }
+            }
+        });
+
+    </script>
+
+
+</body>
+
+</html>

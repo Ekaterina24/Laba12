@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans&family=Roboto&display=swap');
+#bg_color{width: 1200px;min-height: 1000px; margin: 0 auto;}
+
+html, body {font-family: 'Montserrat', sans-serif;background:rgb(82, 190, 181);}
+
+input {
+    margin: 20px;
+    padding: 10px;
+    width: 300px;
+    height: 10px;
+    border-radius: 15px;
+    border: 2px solid rgb(29, 77, 32);
+
+}
+
+
+.main {
+    text-align: center;
+}
+
+.color{
+    background: rgb(202, 97, 97);
+    border-radius: 5%;
+    
+}
+

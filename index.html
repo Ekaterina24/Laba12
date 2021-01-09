@@ -13,7 +13,9 @@
         <div class="main">
             <br>
             <h1>Список студентов</h1>
-            <p>Создание формы </p>
+            <p>Создание формы, используя возможности прогрессивного фреймворка Vue.js.<br>
+                В работе над задачей были использованы следующие директивы: v-model, v-on, v-bind, v-for, v-if и v-else
+            </p>
             <h2>Форма</h2>
 
             <div id="count">
@@ -44,8 +46,8 @@
                         <li v-for="item in items">
                             {{item}}
                         </li>
-                    </ol>
-
+                    </ol><br>
+                    <button class="btn" v-on:click="clear">Очистить</button>
 
                 </div>
             </div>
@@ -90,6 +92,9 @@
                             this.sname = '';
                             this.name_n = '';
                         }
+                    },
+                    clear: function () {
+                        this.items = []
                     },
 
                 },
